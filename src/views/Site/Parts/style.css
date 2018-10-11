@@ -1,0 +1,65 @@
+
+#header-top .menu {
+	background-color: #3f4257;
+}
+
+@media only screen and (min-width: 1200px) {
+	.ui.container {
+		width: 1400px !important;
+	}
+}
+
+#header-top .ui.grid > * {
+	padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#header-top ::placeholder {
+	color: #FFF;
+}
+
+#header-top input {
+	background-color: #4f5269 !important;
+}
+
+
+#header-top .menu a i {
+	font-size: 20px;
+	color: #FFF
+}
+
+#header-top .menu a.active {
+	background: #171717
+}
+#header-top .ui.menu .item > i.icon {
+    opacity: 1;
+    float: none;
+	margin: 0 !important;
+}
+
+#header-top i.search {
+	font-size: 20px;
+	color: #FFF;
+}
+
+.search-home-top-left {
+	margin: 0 !important;
+}
+.search-home-top-left input {
+	width: 470px !important;
+	border-radius: 0px !important
+}
+.search-home-top-left {
+	width: 470px !important;
+}
+
+.search-home-top-right {
+	width: 470px !important;
+	margin: 0 525px 0 !important;
+}
+.search-home-top-left .column {
+	padding: 6px 0 !important
+}
+.search-home-top-left input {
+	background: #fbfbfb !important
+}

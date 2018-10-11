@@ -1,0 +1,81 @@
+{
+  "globals": {
+    "document": true,
+    "foo": true,
+    "window": true,
+    "expect": true
+  },
+  "rules": {
+    "no-console": "off",
+    "no-case-declarations": 0,
+    "strict": [
+      "error",
+      "global"
+    ],
+    "import/no-webpack-loader-syntax": 2,
+    "import/no-named-default": 0,
+    "import/prefer-default-export": 0,
+    "react/react-in-jsx-scope": 0,
+    // Custom rules
+    "eslint no-confusing-arrow": [
+      0,
+      {
+        "allowParens": true
+      }
+    ],
+    "no-unused-expressions": 0,
+    "no-useless-constructor": 0,
+    "indent": [
+      2,
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "space-before-function-paren": [
+      2,
+      {
+        "anonymous": "always",
+        "named": "never"
+      }
+    ],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "no-param-reassign": 0,
+    "class-methods-use-this": 0,
+    "no-use-before-define": [
+      2,
+      "nofunc"
+    ],
+    // TODO: turn on later
+    "comma-dangle": [
+      0
+    ],
+    "import/no-extraneous-dependencies": "off",
+    "no-underscore-dangle": [
+      0
+    ],
+    "semi": [2, "never"]
+  },
+  "env": {
+    "node": true,
+    "mocha": true,
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base"
+  ],
+  "plugins": [
+    "react"
+  ]
+}

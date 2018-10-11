@@ -1,0 +1,25 @@
+*~
+.DS_Store
+# config
+src/config/config.js
+
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build
+
+# misc
+.env
+npm-debug.log
+# Webstorm file
+.idea
+
+# Kill netbean user
+nbproject
+
+package-lock.json
+yarn.lock
