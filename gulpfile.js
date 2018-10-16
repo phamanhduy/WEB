@@ -1,6 +1,6 @@
-const gulp = require('gulp');
-const concat = require('gulp-concat');
-const sass = require('gulp-sass');
+const gulp = require('gulp')
+const concat = require('gulp-concat')
+const sass = require('gulp-sass')
 
 gulp.task('sass', () =>
   gulp.src('./public/scss/style.scss')
@@ -10,12 +10,12 @@ gulp.task('sass', () =>
     .pipe(sass({ outputStyle: 'compressed' }))
     .pipe(concat('style.min.css'))
     .pipe(gulp.dest('./public/css'))
-);
+)
 
 // Watching SCSS files
 gulp.task('sass:watch', () => {
-  gulp.watch('./public/scss/**/*.scss', ['sass']);
-});
+  gulp.watch('./public/scss/**/*.scss', ['sass'])
+})
 
 
-gulp.task('default', ['sass:watch']);
+gulp.task('default', ['sass:watch'])

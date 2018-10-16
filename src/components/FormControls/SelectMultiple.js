@@ -1,16 +1,16 @@
-import React from 'react';
-import { Field } from 'redux-form';
-import Multiselect from 'react-widgets/lib/Multiselect';
-import ValidateMessage from './ValidateMessage';
+import React from 'react'
+import { Field } from 'redux-form'
+import Multiselect from 'react-widgets/lib/Multiselect'
+import ValidateMessage from './ValidateMessage'
 import {
   getStateValidateContainer
-} from '../../helpers/form.helper';
+} from '../../helpers/form.helper'
 
 export const filterName = (item, value, textField) => {
-  const itemName = item[textField].toLowerCase();
-  const valueLower = value.toLowerCase();
-  return itemName.indexOf(valueLower) === 0;
-};
+  const itemName = item[textField].toLowerCase()
+  const valueLower = value.toLowerCase()
+  return itemName.indexOf(valueLower) === 0
+}
 export const renderMultiselectCreateNew =
   ({ input, data, valueField, className, textField, label, meta: { touched, error, warning } }) => (
     <div className={`${className} ${getStateValidateContainer(error, warning)}`}>
@@ -24,9 +24,9 @@ export const renderMultiselectCreateNew =
             const newTag = {
               id: code,
               code
-            };
-            input.value = [...input.value, newTag];
-            input.onChange(input.value);
+            }
+            input.value = [...input.value, newTag]
+            input.onChange(input.value)
           }
           }
         valueField={valueField}
@@ -39,7 +39,7 @@ export const renderMultiselectCreateNew =
         label={label}
       />
     </div>
-  );
+  )
 export const renderMultiselect =
   ({ input, data, valueField, className, textField, label, meta: { touched, error, warning } }) => (
     <div className={`${className} ${getStateValidateContainer(error, warning)}`}>
@@ -58,7 +58,7 @@ export const renderMultiselect =
         label={label}
       />
     </div>
-  );
+  )
 const SelectMultiple = ({
   name, allowCreate, data, label, valueField, textField, validate, className, onChange
 }) => {
@@ -74,7 +74,7 @@ const SelectMultiple = ({
         component={renderMultiselectCreateNew}
         className={className}
         onChange={onChange}
-      />);
+      />)
   }
   return (
     <Field
@@ -87,6 +87,6 @@ const SelectMultiple = ({
       component={renderMultiselect}
       className={className}
       onChange={onChange}
-    />);
-};
-export default SelectMultiple;
+    />)
+}
+export default SelectMultiple

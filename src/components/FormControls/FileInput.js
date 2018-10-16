@@ -1,11 +1,11 @@
-import React from 'react';
-import { Field } from 'redux-form';
+import React from 'react'
+import { Field } from 'redux-form'
 import {
   getStateValidateContainer,
   getStateValidateInput,
   validateFileInput
-} from '../../helpers/form.helper';
-import ValidateMessage from './ValidateMessage';
+} from '../../helpers/form.helper'
+import ValidateMessage from './ValidateMessage'
 
 export const renderFileInput = ({
                                   input, className, label, type, value, handleOnChange,
@@ -22,12 +22,12 @@ export const renderFileInput = ({
       type={type}
       value={value}
       onChange={(e) => {
-        input.onBlur(e);
-        const err = validateFileInput(e.target.files);
+        input.onBlur(e)
+        const err = validateFileInput(e.target.files)
         if (err === undefined) {
-          handleOnChange(e);
+          handleOnChange(e)
         }
-        input.onChange(e);
+        input.onChange(e)
       }
       }
     />
@@ -38,7 +38,7 @@ export const renderFileInput = ({
       label={label}
     />
   </div>
-);
+)
 
 const FileInput = ({
                      name, type, label, validate, className, handleOnChange
@@ -50,5 +50,5 @@ const FileInput = ({
   component={renderFileInput}
   className={className}
   handleOnChange={handleOnChange}
-/>);
-export default FileInput;
+/>)
+export default FileInput

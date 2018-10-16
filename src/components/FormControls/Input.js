@@ -1,10 +1,10 @@
-import React from 'react';
-import { Field } from 'redux-form';
+import React from 'react'
+import { Field } from 'redux-form'
 import {
   getStateValidateContainer,
   getStateValidateInput
-} from '../../helpers/form.helper';
-import ValidateMessage from './ValidateMessage';
+} from '../../helpers/form.helper'
+import ValidateMessage from './ValidateMessage'
 
 export const renderInput = ({
                               input, className, label, type,
@@ -20,7 +20,7 @@ export const renderInput = ({
       label={label}
     />
   </div>
-);
+)
 
 const Input = ({ name, type, label, validate, className = '' }) => (<Field
   name={name}
@@ -29,5 +29,5 @@ const Input = ({ name, type, label, validate, className = '' }) => (<Field
   validate={validate}
   component={renderInput}
   className={className}
-/>);
-export default Input;
+/>)
+export default Input

@@ -44,7 +44,7 @@
     "no-param-reassign": 0,
     "class-methods-use-this": 0,
     "no-use-before-define": [
-      2,
+      0,
       "nofunc"
     ],
     // TODO: turn on later
@@ -55,7 +55,9 @@
     "no-underscore-dangle": [
       0
     ],
-    "semi": [2, "never"]
+    "prefer-const": 0,
+    "semi": [2, "never"],
+    "linebreak-style" : 0 /* Expected linebreaks to be 'LF' but found 'CRLF' */
   },
   "env": {
     "node": true,

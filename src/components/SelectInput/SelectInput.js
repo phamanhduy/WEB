@@ -1,5 +1,5 @@
-import React from 'react';
-import Select from 'react-select';
+import React from 'react'
+import Select from 'react-select'
 
 const SelectInput = (props) => {
   const config = {
@@ -7,16 +7,16 @@ const SelectInput = (props) => {
     backspaceRemoves: true,
     multi: true,
     value: 1
-  };
+  }
   const {
     creatable,
     backspaceRemoves,
     multi
-  } = config;
+  } = config
 
   const AsyncComponent = creatable
     ? Select.AsyncCreatable
-    : Select.Async;
+    : Select.Async
   return (
     <div>
       <AsyncComponent multi={multi}
@@ -28,6 +28,6 @@ const SelectInput = (props) => {
                       backspaceRemoves={backspaceRemoves}
       />
     </div>
-  );
-};
-export default SelectInput;
+  )
+}
+export default SelectInput

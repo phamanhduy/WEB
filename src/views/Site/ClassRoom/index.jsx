@@ -26,34 +26,7 @@ class ClassRoom extends Component {
 
 	handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 	componentDidMount () {
-		streamVideo(function (stream, props) 
-		{
-
-			const p = new Peer({ initiator: location.hash === '#1', trickle: false, stream })
-
-			console.log('>>>perr', p)
-			p.on('error', function (err) { console.log('error', err) })
-			// run PEER
-			p.on('signal', token => {
-				console.log('>>>token', JSON.stringify(token))
-				// $('#out-signal').val(JSON.stringify(token))
-			})
-
-			// $('#connect').on('click', function () {
-			// 	const singnalFriend = JSON.parse($('#input-signal').val())
-			// 	p.signal(singnalFriend)
-			// })
-
-			// 	p.on('connect', () => {
-			// 		console.log('bạn đã connect')
-			// 	})
-
-
-				// p.on('stream', (stream) => {
-				// 	console.log('>>>>>>', stream)
-				// })
-			// })
-		}, this.props)
+		this.props.INIT()
 	}
 	render () {
 		const { isLinksLoaded, clickGetData } = this.props
@@ -296,10 +269,10 @@ class ClassRoom extends Component {
 								<div className='video-item'>
 									<video id='stream1' controls> </video>
 								</div>
-								<div className='video-item'>
+								<div id="" className='video-item'>
 									<video id='stream2' controls> </video>
 								</div>
-								<div className='video-item'>
+								<div id="" className='video-item'>
 									<video id='stream3' controls> </video>
 								</div>
 							</div>
@@ -316,7 +289,8 @@ const mapStateToProps = state => ({
   })
 
 const mapDispatchToProps = dispatch => ({
-	storeVideo: (stream) => dispatch(action.streamVideo(stream))
+	storeVideo: (stream) => dispatch(action.streamVideo(stream)),
+	INIT: () => action.init(dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClassRoom)

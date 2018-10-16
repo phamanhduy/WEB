@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const ValidateMessage = ({ touched, error, warning }) => (
   touched &&
@@ -6,6 +6,6 @@ const ValidateMessage = ({ touched, error, warning }) => (
     (error && <span className="text-danger">{error}</span>) ||
     (warning && <span className="text-warning">{warning}</span>)
   )
-) || null;
+) || null
 
-export default ValidateMessage;
+export default ValidateMessage

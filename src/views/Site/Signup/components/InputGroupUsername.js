@@ -1,9 +1,9 @@
-import React from 'react';
-import { Field } from 'redux-form';
+import React from 'react'
+import { Field } from 'redux-form'
 import {
   getStateValidateContainer,
   getStateValidateInput
-} from '../../../../helpers/form.helper';
+} from '../../../../helpers/form.helper'
 
 export const renderInput = ({
                               input, placeholder, type,
@@ -17,7 +17,7 @@ export const renderInput = ({
            placeholder={placeholder} type={type}
     />
   </div>
-);
+)
 
 const InputGroupUsername = ({ name, type, label, validate, placeholder }) => (<Field
   name={name}
@@ -26,5 +26,5 @@ const InputGroupUsername = ({ name, type, label, validate, placeholder }) => (<F
   validate={validate}
   component={renderInput}
   placeholder={placeholder}
-/>);
-export default InputGroupUsername;
+/>)
+export default InputGroupUsername

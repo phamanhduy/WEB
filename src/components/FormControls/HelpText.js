@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const HelpText = ({ helpText }) => (
   helpText !== ''
@@ -6,5 +6,5 @@ const HelpText = ({ helpText }) => (
     <span className="help-block text-success">{helpText}</span>
     :
     null
-);
-export default HelpText;
+)
+export default HelpText

@@ -1,13 +1,13 @@
-import React from 'react';
-import TinyMCEInput from 'react-tinymce-input';
-import { Field } from 'redux-form';
+import React from 'react'
+import TinyMCEInput from 'react-tinymce-input'
+import { Field } from 'redux-form'
 import {
   configTinyMCE
-} from '../../config/constants';
-import ValidateMessage from './ValidateMessage';
+} from '../../config/constants'
+import ValidateMessage from './ValidateMessage'
 import {
   getStateValidateContainer
-} from '../../helpers/form.helper';
+} from '../../helpers/form.helper'
 
 const renderTextAreaEditor = ({
   input, className, label,
@@ -27,7 +27,7 @@ const renderTextAreaEditor = ({
       label={label}
     />
   </div>
-);
+)
 
 const TextAreaEditorReduxForm = ({ name, label, validate, className }) => (<Field
   name={name}
@@ -35,5 +35,5 @@ const TextAreaEditorReduxForm = ({ name, label, validate, className }) => (<Fiel
   validate={validate}
   component={renderTextAreaEditor}
   className={className}
-/>);
-export default TextAreaEditorReduxForm;
+/>)
+export default TextAreaEditorReduxForm

@@ -1,16 +1,16 @@
-import React from 'react';
-import { Field } from 'redux-form';
-import DropdownList from 'react-widgets/lib/DropdownList';
-import ValidateMessage from './ValidateMessage';
+import React from 'react'
+import { Field } from 'redux-form'
+import DropdownList from 'react-widgets/lib/DropdownList'
+import ValidateMessage from './ValidateMessage'
 import {
   getStateValidateContainer
-} from '../../helpers/form.helper';
+} from '../../helpers/form.helper'
 
 export const filterName = (item, value, textField) => {
-  const itemName = item[textField].toLowerCase();
-  const valueLower = value.toLowerCase();
-  return itemName.indexOf(valueLower) === 0;
-};
+  const itemName = item[textField].toLowerCase()
+  const valueLower = value.toLowerCase()
+  return itemName.indexOf(valueLower) === 0
+}
 export const renderSelect =
   ({
      input, data, valueField, className, helpText, textField, label,
@@ -36,7 +36,7 @@ export const renderSelect =
         <span className="help-block text-success">{helpText}</span>
 
       </div>
-    );
+    )
 
 const Select = ({ name, data, label, valueField, textField, helpText, validate, className }) => (
   <Field
@@ -49,5 +49,5 @@ const Select = ({ name, data, label, valueField, textField, helpText, validate, 
     component={renderSelect}
     className={className}
     helpText={helpText}
-  />);
-export default Select;
+  />)
+export default Select

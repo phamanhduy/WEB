@@ -1,5 +1,5 @@
-import React from 'react';
-import propTypes from 'prop-types';
+import React from 'react'
+import propTypes from 'prop-types'
 
 const Switches = ({ value, onChange }) => (
   <div className="container-fluid">
@@ -12,13 +12,13 @@ const Switches = ({ value, onChange }) => (
       <span className="switch-handle"></span>
     </label>
   </div>
-);
+)
 
 Switches.propTypes = {
   onChange: propTypes.func,
   textChecked: propTypes.string,
   value: propTypes.bool,
   textUnChecked: propTypes.string,
-};
+}
 
-export default Switches;
+export default Switches

@@ -1,13 +1,13 @@
 export function topPosition(domElt) {
   if (!domElt) {
-    return 0;
+    return 0
   }
-  return domElt.offsetTop + topPosition(domElt.offsetParent);
+  return domElt.offsetTop + topPosition(domElt.offsetParent)
 }
 
 export function leftPosition(domElt) {
   if (!domElt) {
-    return 0;
+    return 0
   }
-  return domElt.offsetLeft + leftPosition(domElt.offsetParent);
+  return domElt.offsetLeft + leftPosition(domElt.offsetParent)
 }

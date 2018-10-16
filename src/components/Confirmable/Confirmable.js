@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { confirmable } from 'react-confirm';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { confirmable } from 'react-confirm'
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap'
 
 
 const Confirmable = ({ show, proceed, dismiss, cancel, confirmation, options }) => (
@@ -14,7 +14,7 @@ const Confirmable = ({ show, proceed, dismiss, cancel, confirmation, options }) 
       <Button color="primary" onClick={proceed}><i className="fa fa-check"/> Đồng ý</Button>{' '}
       <Button color="secondary" onClick={cancel}><i className="fa fa-ban"/> Không</Button>
     </ModalFooter>
-  </Modal>);
+  </Modal>)
 
 
 Confirmable.propTypes = {
@@ -24,7 +24,7 @@ Confirmable.propTypes = {
   dismiss: PropTypes.func,         // from confirmable. call to only close the dialog.
   confirmation: PropTypes.string,  // arguments of your confirm function
   options: PropTypes.object        // arguments of your confirm function
-};
+}
 
 // confirmable HOC pass props `show`, `dismiss`, `cancel` and `proceed` to your component.
-export default confirmable(Confirmable);
+export default confirmable(Confirmable)

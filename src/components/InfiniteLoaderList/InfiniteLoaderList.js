@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
-import ReduxInfiniteScroll from '../ReduxInfiniteScroll/ReduxInfiniteScroll';
+import React, { Component } from 'react'
+import { PropTypes } from 'prop-types'
+import ReduxInfiniteScroll from '../ReduxInfiniteScroll/ReduxInfiniteScroll'
 
 export default class InfiniteLoaderList extends Component {
 
@@ -20,11 +20,11 @@ export default class InfiniteLoaderList extends Component {
           hasMore={this.props.fetchAble}
         />
       </div>
-    );
+    )
   }
 }
 
 InfiniteLoaderList.propTypes = {
   loadMoreAction: PropTypes.func,
   items: PropTypes.array
-};
+}
