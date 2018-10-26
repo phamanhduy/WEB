@@ -10,7 +10,8 @@ import { USER_LOGOUT } from './views/Site/Login/state'
 // Page Reducer
 import asideReducer from './views/Cms/_Parts/Aside/_asideReducer'
 import loginReducer from './views/Site/Login/_loginReducer'
-import roomPageReducer from './views/Site/ClassRoom/roomPageReducer'
+import mediaReducer from './views/Site/Rooms/mediaReducer'
+import peersReducer from './views/Site/Rooms/peersReducer'
 import fullReducer from './layouts/Full/_fullReducer'
 import * as fullActions from './layouts/Full/_fullActions'
 
@@ -22,7 +23,8 @@ const appReducer = combineReducers({
   form: formReducer,
   routing: routerReducer,
   app: fullReducer,
-  media: roomPageReducer
+  media: mediaReducer,
+  peers: peersReducer
 })
 
 

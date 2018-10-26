@@ -1,13 +1,14 @@
-import * as NotifyActions from './NotifyActions.js'
-import * as StreamActions from './StreamActions.js'
-import * as constants from '../../../helpers/constants.js'
 import Peer from 'simple-peer'
+import * as NotifyActions from './NotifyActions'
+import * as StreamActions from './StreamActions'
+import * as constants from '../../../helpers/constants'
+import lodash from 'lodash'
 import _ from 'underscore'
 import _debug from 'debug'
-import { play, iceServers } from '../window.js'
+import { play, iceServers } from '../../../helpers/window'
 
 const debug = _debug('peercalls')
-
+/* eslint-disable */
 class PeerHandler {
   constructor ({ socket, user, dispatch, getState }) {
     this.socket = socket
@@ -69,21 +70,24 @@ class PeerHandler {
  * @param {MediaStream} [options.stream]
  */
 export function createPeer ({ socket, user, initiator, stream }) {
+  // createPeer
   return (dispatch, getState) => {
     const userId = user.id
     debug('create peer: %s, stream:', userId, stream)
     dispatch(NotifyActions.warning('Connecting to peer...'))
 
     const oldPeer = getState().peers[userId]
+    console.log('>>>oldPeer',  oldPeer)
+    console.log('>>>oldPeerID',  userId)
     if (oldPeer) {
       dispatch(NotifyActions.info('Cleaning up old connection...'))
       oldPeer.destroy()
       dispatch(removePeer(userId))
     }
 
-    const peer = new Peer({
+    const peer = new Peer({ // Failed to construct 'RTCPeerConnection': The provided value cannot be converted to a sequence.
       initiator: socket.id === initiator,
-      config: { iceServers },
+      // config: { iceServers },
       // Allow the peer to receive video, even if it's not sending stream:
       // https://github.com/feross/simple-peer/issues/95
       offerConstraints: {
@@ -92,7 +96,6 @@ export function createPeer ({ socket, user, initiator, stream }) {
       },
       stream
     })
-
     const handler = new PeerHandler({
       socket,
       user,
@@ -106,7 +109,7 @@ export function createPeer ({ socket, user, initiator, stream }) {
     peer.on(constants.PEER_EVENT_SIGNAL, handler.handleSignal)
     peer.on(constants.PEER_EVENT_STREAM, handler.handleStream)
     peer.on(constants.PEER_EVENT_DATA, handler.handleData)
-
+    // add peer reducer
     dispatch(addPeer({ peer, userId }))
   }
 }

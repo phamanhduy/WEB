@@ -1,6 +1,6 @@
-  import * as NotifyActions from './NotifyActions.js'
-import * as PeerActions from './PeerActions.js'
-import * as constants from '../../../helpers/constants.js'
+  import * as NotifyActions from './NotifyActions'
+import * as PeerActions from './PeerActions'
+import * as constants from '../../../helpers/constants'
 import _ from 'underscore'
 import _debug from 'debug'
 
@@ -17,7 +17,7 @@ class SocketHandler {
   handleSignal = ({ userId, signal }) => {
     const { getState } = this
     const peer = getState().peers[userId]
-    // debug('socket signal, userId: %s, signal: %o', userId, signal);
+    debug('socket signal, userId: %s, signal: %o', userId, signal);
     if (!peer) return debug('user: %s, no peer found', userId)
     peer.signal(signal)
   }
@@ -26,7 +26,6 @@ class SocketHandler {
     debug('socket users: %o', users)
     dispatch(NotifyActions.info('Connected users: {0}', users.length))
     const { peers } = getState()
-
     users
     .filter(user => !peers[user.id] && user.id !== socket.id)
     .forEach(user => dispatch(PeerActions.createPeer({
@@ -39,7 +38,7 @@ class SocketHandler {
     let newUsersMap = _.indexBy(users, 'id')
     _.keys(peers)
     .filter(id => !newUsersMap[id])
-    .forEach(id => peers[id].destroy())
+    .forEach(id => delete peers[id]) // change destroy as delete
   }
 }
 
@@ -52,7 +51,7 @@ export function handshake ({ socket, roomName, stream }) {
       dispatch,
       getState
     })
-
+    
     socket.on(constants.SOCKET_EVENT_SIGNAL, handler.handleSignal)
     socket.on(constants.SOCKET_EVENT_USERS, handler.handleUsers)
 

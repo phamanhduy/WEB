@@ -3,16 +3,14 @@
  */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Peer from 'simple-peer'
 import { Loader, Dropdown, Icon, Menu, Image, Button, List, Feed, Form } from 'semantic-ui-react'
 
-import streamVideo from '../../../services/Stream/stream.js'
-import playVideo from '../../../services/Stream/playVideo.js'
+import Video from './Components/Video.js'
 import * as action from './roomPageActions.js'
 
 require('./style.css')
 
-class ClassRoom extends Component {
+class Rooms extends Component {
 
 	constructor(props) {
 		super(props);
@@ -29,14 +27,9 @@ class ClassRoom extends Component {
 		this.props.INIT()
 	}
 	render () {
-		const { isLinksLoaded, clickGetData } = this.props
-		// console.log('>>>props', this.props.getVideo)
+		const { isLinksLoaded, media, stores } = this.props
 		const { activeItem } = this.state
-		// streamVideo(function (stream) {
-		// 	playVideo('stream1', stream)
-		// 	playVideo('stream2', stream)
-		// 	playVideo('stream3', stream)
-		// })
+		console.log('>>>store', stores)
 		return (
 			<div>
 				{isLinksLoaded ? (
@@ -267,13 +260,7 @@ class ClassRoom extends Component {
 						<div className='video-bottom-friend'>
 							<div className='video-item-wrapper'>
 								<div className='video-item'>
-									<video id='stream1' controls> </video>
-								</div>
-								<div id="" className='video-item'>
-									<video id='stream2' controls> </video>
-								</div>
-								<div id="" className='video-item'>
-									<video id='stream3' controls> </video>
+									<Video stream={media.stream} userId={media.userId} />
 								</div>
 							</div>
 						</div>
@@ -285,12 +272,14 @@ class ClassRoom extends Component {
 }
 
 const mapStateToProps = state => ({
-	getVideo: action.getVideo
-  })
+	media: state.media,
+	getVideo: action.getVideo,
+	stores: state
+})
 
 const mapDispatchToProps = dispatch => ({
 	storeVideo: (stream) => dispatch(action.streamVideo(stream)),
 	INIT: () => action.init(dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClassRoom)
+export default connect(mapStateToProps, mapDispatchToProps)(Rooms)

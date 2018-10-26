@@ -17,7 +17,7 @@ import LoginPage from './views/Site/Login'
 import SignupPage from './views/Site/Signup'
 
 // SITE
-import Rooms from './views/Site/ClassRoom/index'
+import Rooms from './views/Site/Rooms/index'
 import Feeds from './views/Site/Feeds/index'
 
 
